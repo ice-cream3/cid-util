@@ -1,0 +1,3 @@
+#¥Ú”°»’÷æ
+logging:
+  config: classpath:log4j.properties
