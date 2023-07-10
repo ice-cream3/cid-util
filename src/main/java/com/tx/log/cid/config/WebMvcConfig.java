@@ -1,6 +1,7 @@
 package com.tx.log.cid.config;
 
 import com.tx.log.cid.interceptor.LogInterceptor;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -25,7 +26,10 @@ import javax.annotation.Resource;
  */
 @EnableWebMvc
 @Configuration
+@AutoConfigureAfter(WebMvcConfigurer.class)
 public class WebMvcConfig implements WebMvcConfigurer {
+//    @AutoConfigureAfter(WebMvcConfigurationSupport.class)
+//    public class DefaultWebMvcConfig extends WebMvcConfigurationSupport {
 
 //        @Autowired
 //        private PreventRepeatSubmitInterceptor preventRepeatSubmitInterceptor;
@@ -33,7 +37,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Resource
     private LogInterceptor logInterceptor;
 
-    public void addCorsMappings(CorsRegistry registry) {
+    /*public void addCorsMappings(CorsRegistry registry) {
         //设置允许跨域的路径
         registry.addMapping("/**") //映射地址
                 .allowedOriginPatterns("*")//允许跨域地址
@@ -42,7 +46,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .allowedMethods("GET", "POST")
                 .allowCredentials(true)
                 .maxAge(3600);
-    }
+    }*/
 
     public void addInterceptors(InterceptorRegistry registry) {
         //.excludePathPatterns("/wechatwork/**")  .addPathPatterns("/order/**")

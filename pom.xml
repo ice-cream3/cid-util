@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.tx.log</groupId>
-    <artifactId>cid</artifactId>
+    <artifactId>cid-spring-boot-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>cid</name>
     <description>Demo project for Spring Boot</description>
@@ -62,6 +62,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--安装到仓库后，引用时不出现 BOOT-INF文件夹（会导致找不到相关类）-->
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
